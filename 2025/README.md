@@ -7,9 +7,9 @@ This year I discovered (a bit late) the Jane Street side quest and so, since I h
 
 # Overview
 
-This is a SystemVerilog implementation of AOC Day 3, Part 1 (https://adventofcode.com/2025/day/3).
-My first implementation was in Rust, my learning language for this year.
-To prepare the SystemVerilog version, I simplified the initial Rust algorithm with a new Python version and then, in the end, I wrote a lower-level version in C.
+This is a [SystemVerilog implementation](verilog) of AOC Day 3, Part 1 (https://adventofcode.com/2025/day/3).
+My first implementation was in [Rust](rust), my learning language for this year.
+To prepare the SystemVerilog version, I simplified the initial Rust algorithm with a new [Python](python) version and then, in the end, I wrote a lower-level version in [C](c).
 
 
 # Architecture
@@ -85,8 +85,9 @@ current_state     X            0              X   2   X   3   X   1   X   2   X 
 - All error management could be removed, but error detection made validation easier and makes the device look somewhat more professional.
 
 
-# Other solutions
-## Rust
+# Other solutions (in chronological order)
+
+## [Rust](rust)
 - Build
 ```
 cargo build --release
@@ -96,13 +97,13 @@ cargo build --release
 cargo run --release path/to/input.txt
 ```
 
-## Python
+## [Python](python)
 - Run
 ```
 python3 ./part1.py path/to/input.txt
 ```
 
-## C
+## [C](c)
 - Build
 ```
 make
@@ -124,4 +125,7 @@ make
 - PlantUML Version 1.2020.02
 - Neovim 0.11.3 (built locally) + verible v0.0-4051-g9fdb4057
 
+# License
+
+All the code in this repository is released under the [MIT License](../LICENSE)
 
