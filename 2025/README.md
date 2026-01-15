@@ -58,7 +58,7 @@ The project can be built and simulated using `make`:
 
 ## Startup timing: reset followed by two input cycles
 
-<p>Low res</p>
+<p>Low res (best viewed in vi)</p>
 
 ```
               +---+   +---+   +---+   +---+   +---+   +---+   +---+   +---+   +---+   +---+   +
@@ -85,7 +85,7 @@ current_state     X            0              X   2   X   3   X   1   X   2   X 
                                               S_EXPECT_DIGIT_OR_EOL
 ```
 
-<p>High res</p>
+<p>High res (best viewed anywhere else)</p>
 
   ![Waveform](resources/waveform.png)
 
@@ -99,6 +99,7 @@ current_state     X            0              X   2   X   3   X   1   X   2   X 
 
 
 # Preparatory solutions (in chronological order)
+Commands below assume you are in the corresponding solution directory.
 
 ## [Rust](rust)
 - Build
@@ -137,8 +138,3 @@ make
 - Python 3.12.3
 - PlantUML Version 1.2020.02
 - Neovim 0.11.3 (built locally) + verible v0.0-4051-g9fdb4057
-
-# License
-
-All the code in this repository is released under the [MIT License](../LICENSE)
-
