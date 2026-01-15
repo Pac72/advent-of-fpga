@@ -4,3 +4,7 @@
 - [The Challenge](https://blog.janestreet.com/advent-of-fpga-challenge-2025/)
 
 - [A Solution](2025/README.md)
+
+---
+
+All the code in this repository is released under the [MIT License](LICENSE)
