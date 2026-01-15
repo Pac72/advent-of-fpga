@@ -19,6 +19,8 @@ It receives and processes one digit every 3 clock cycles, using valid/ack signal
 Upon reception of the newline character, it computes the intermediate result in 3 clock cycles.
 The `data_error` signal is asserted if an invalid input is detected or if an invalid internal state is detected.
 
+## FSM diagram
+  ![FSM](resources/part1-fsm.png)
 
 # I/O Ports
 
