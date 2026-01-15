@@ -24,8 +24,11 @@ waves: waveform.vcd
 
 diagrams: part1-fsm.svg part1-fsm.png
 
-part1-fsm.%: part1-fsm.puml
-	plantuml -t$* part1-fsm.puml
+part1-fsm.svg: part1-fsm.puml
+	plantuml -tsvg part1-fsm.puml
+
+part1-fsm.png: part1-fsm.puml
+	plantuml -tpng part1-fsm.puml
 
 # Clean up all generated files.
 clean:
