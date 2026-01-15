@@ -40,7 +40,7 @@ The `data_error` signal is asserted if an invalid input is detected or if an inv
 The project can be built and simulated using `make`:
 
 - `make all`
-  Compiles the DUT (`part1.sv`) and its testbench (`tb_part1.sv`), along with `sim_main.cpp`, then launches the simulation and produces `waveform.vcd`.
+  Compiles the DUT [`part1.sv`](verilog/part1.sv) and its testbench [`tb_part1.sv`](verilog/tb_part1.sv), along with [`sim_main.cpp`](verilog/sim_main.cpp), then launches the simulation and produces `waveform.vcd`.
   NOTE: `tb_part1.sv` reads the input from the file `input.txt` in its directory.
 
 - `make waves`
