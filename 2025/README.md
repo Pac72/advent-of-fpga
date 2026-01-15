@@ -43,7 +43,11 @@ The project can be built and simulated using `make`:
 
 - `make all`
   Compiles the DUT [`part1.sv`](verilog/part1.sv) and its testbench [`tb_part1.sv`](verilog/tb_part1.sv), along with [`sim_main.cpp`](verilog/sim_main.cpp), then launches the simulation and produces `waveform.vcd`.
-  NOTE: `tb_part1.sv` reads the input from the file `input.txt` in its directory.
+
+> [!IMPORTANT]
+> `tb_part1.sv` gets the input stream from the file [`input.txt`](verilog/input.txt) in its directory.
+> The provided file contains [example data from the problem](https://adventofcode.com/2025/day/3).
+> Replace it with the desired test data.
 
 - `make waves`
   Opens `waveform.vcd` with `gtkwave`.
@@ -53,6 +57,9 @@ The project can be built and simulated using `make`:
 
 
 ## Startup timing: reset followed by two input cycles
+
+<p>Low res</p>
+
 ```
               +---+   +---+   +---+   +---+   +---+   +---+   +---+   +---+   +---+   +---+   +
 clk           |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
@@ -78,6 +85,10 @@ current_state     X            0              X   2   X   3   X   1   X   2   X 
                                               S_EXPECT_DIGIT_OR_EOL
 ```
 
+<p>High res</p>
+
+  ![Waveform](resources/waveform.png)
+
 
 # Improvements
 
@@ -87,7 +98,7 @@ current_state     X            0              X   2   X   3   X   1   X   2   X 
 - All error management could be removed, but error detection made validation easier and makes the device look somewhat more professional.
 
 
-# Other solutions (in chronological order)
+# Preparatory solutions (in chronological order)
 
 ## [Rust](rust)
 - Build
