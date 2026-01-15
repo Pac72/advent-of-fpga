@@ -1,0 +1,55 @@
+@startuml part1-fsm
+hide empty description
+skinparam BackgroundColor white
+skinparam state {
+  BackgroundColor<<ERROR>> IndianRed
+  FontColor<<ERROR>> White
+}
+
+[*] --> S_EXPECT_DIGIT : on reset
+
+state S_EXPECT_DIGIT {
+  S_EXPECT_DIGIT: data_ack = 0
+  S_EXPECT_DIGIT: result_ready = 0
+}
+S_EXPECT_DIGIT --> S_PROCESS : data_valid & is_digit
+S_EXPECT_DIGIT --> S_ERROR : data_valid & !is_digit
+
+state S_PROCESS {
+  S_PROCESS: data_ack = 0
+  S_PROCESS: result_ready = 0
+}
+S_PROCESS --> S_PROCESS_ACK : (unconditional)
+
+state S_PROCESS_ACK {
+  S_PROCESS_ACK: data_ack = 1
+  S_PROCESS_ACK: result_ready = 0
+}
+S_PROCESS_ACK --> S_EXPECT_DIGIT_OR_EOL : !data_valid
+
+state S_EXPECT_DIGIT_OR_EOL {
+  S_EXPECT_DIGIT_OR_EOL: data_ack = 0
+  S_EXPECT_DIGIT_OR_EOL: result_ready = 0
+}
+S_EXPECT_DIGIT_OR_EOL --> S_PROCESS : data_valid & is_digit
+S_EXPECT_DIGIT_OR_EOL --> S_PREPARE_UPDATE_RESULT : data_valid & is_newline
+S_EXPECT_DIGIT_OR_EOL --> S_ERROR : "data_valid & !(is_digit | is_newline)"
+
+state S_PREPARE_UPDATE_RESULT {
+  S_PREPARE_UPDATE_RESULT: data_ack = 0
+  S_PREPARE_UPDATE_RESULT: result_ready = 0
+}
+S_PREPARE_UPDATE_RESULT --> S_RESULT_READY : (unconditional)
+
+state S_RESULT_READY {
+  S_RESULT_READY: data_ack = 1
+  S_RESULT_READY: result_ready = 1
+}
+S_RESULT_READY --> S_EXPECT_DIGIT : !data_valid
+
+state S_ERROR <<ERROR>> {
+  S_ERROR: data_error = 1
+}
+S_ERROR --> S_EXPECT_DIGIT : error_clear
+
+@enduml

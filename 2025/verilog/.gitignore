@@ -1,0 +1,6 @@
+obj_dir/
+part1.gtkw
+waveform.vcd
+.clangd
+part1-fsm.png
+part1-fsm.svg
