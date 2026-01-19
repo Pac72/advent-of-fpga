@@ -87,13 +87,13 @@ module tb_part1;
         @(posedge clk);
 
         // open input file with bank of batteries
-        file_handle = $fopen("input.txt", "r");
+        file_handle = $fopen(INPUT_FILENAME, "r");
         if (file_handle == 0) begin
-            $display("ERROR: input.txt could not be opened.");
+            $display("ERROR: \"%s\" could not be opened.", INPUT_FILENAME);
             $finish;
         end
 
-        $display("Reading from input.txt and sending to DUT...");
+        $display("Reading from \"%s\" and sending to DUT...", INPUT_FILENAME);
 
         char = $fgetc(file_handle);
         while (char >= 0) begin
